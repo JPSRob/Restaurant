@@ -1,3 +1,13 @@
 # depslib dependency file v1.0
-1412720536 source:c:\users\justin roberts\google drive\school\fall 2014\cs240 c++\group project 1\project\restaurant\main.cpp
+1413677570 source:c:\users\justin roberts\google drive\school\fall 2014\cs240 c++\group project 1\project\restaurant\main.cpp
+	"Display.h"
+	<iostream>
+
+1413680237 source:c:\users\justin roberts\google drive\school\fall 2014\cs240 c++\group project 1\project\restaurant\display.cpp
+	"Display.h"
+	<iostream>
+	<fstream>
+
+1413680312 c:\users\justin roberts\google drive\school\fall 2014\cs240 c++\group project 1\project\restaurant\display.h
+	<iostream>
 
