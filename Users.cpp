@@ -198,28 +198,38 @@ bool Users::logIn(string& name, bool& isManager){
     string password;
     string managerString;
     bool manager;
+    int dumb;
     //Prompt for user to enter username
     //cout << "Please login." << endl << "Enter your username: " << endl;
     //cin >> username;
     int userColumn;
     bool loopFlag = false;
+    cout << string(50, '\n');
     while(loopFlag == false){
-            cout << string(50, '\n');
+            //!FIX THIS LOOP LOGIC!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+            //If user enters 'q', return true to close program
+            if(username == "q"){
+                cout << string(50, '\n');
+                return true;
+            }
+            else{
             cout << "    Welcome! Please, login    " << endl;
             cout << "------------------------------" << endl;
             cout << "Please enter your username: " << endl;
-            cout << string(20, '\n');
+            cout << "(Enter 'q' to quit program)" << endl;
+            cout << string(19, '\n');
             cin >> username;
-            //Make sure username hasn't been used before
-            int columnCounter = 0;
-            for(int i = 0; i <= columnCounter; i++){
-                if(username == loginVector[i][0]){
-                    loopFlag = true;
-                    userColumn = i;
+                //Make sure username hasn't been used before
+                for(int i = 0; i <= loginVector.size(); i++){
+                    if(username == loginVector[i][0]){
+                        loopFlag = true;
+                        userColumn = i;
+                    }
                 }
-            }
-            if(loopFlag == false){
-                cout << "Username does not exist!" << endl;
+                if(loopFlag == false){
+                    cout << string(50, '\n');
+                    cout << "Username does not exist!" << endl;
+                }
             }
         }
     //Prompt for user to enter password
@@ -231,6 +241,7 @@ bool Users::logIn(string& name, bool& isManager){
                 loopFlag = true;
             }
             else if(loopFlag == false){
+                cout << string(50, '\n');
                 cout << "Password is incorrect!" << endl;
             }
         }
@@ -240,12 +251,7 @@ bool Users::logIn(string& name, bool& isManager){
     //assign passed-by-reference variables
     name = username;
     isManager = manager;
-}
-}
-
-//!Method to log out
-void Users::logOut(){
-
+    }
 }
 
 //!Destructor

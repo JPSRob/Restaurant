@@ -10,7 +10,6 @@ public:
     Users();
     void createLogin();
     bool logIn(string&,bool&);
-    void logOut();
 
     ~Users();
 private:

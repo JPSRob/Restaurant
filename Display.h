@@ -7,16 +7,20 @@ using namespace std;
 class Display{
 public:
     Display();
+    void displayStart();
     bool checkForManagerFile();
     void displayLogin();
-    void displayMain(); //pass name of person logged in and bool value true if manager, false if non-manager
-
-
+    void displayLogout();
+    void displayMain();
+    void displaySetups();
+    void displayInventoryMenu();
+    void displayUsersMenu();
 
     ~Display();
 private:
     string name;
     bool isManager;
+    bool quitProgram;
 };
 
 #endif // DISPLAY_H
