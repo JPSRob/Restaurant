@@ -6,15 +6,15 @@ using namespace std;
 
 class Users{
 public:
-    string loginName;
     Users();
-    void createLogin();
     bool logIn(string&,bool&);
+    void createLogin();
+    void editLogin();
+    void deleteLogin();
 
     ~Users();
 private:
-
-
+    string loginName;
 };
 
 

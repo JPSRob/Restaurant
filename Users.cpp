@@ -54,13 +54,16 @@ void Users::createLogin(){
         bool loopFlag = false;
         bool isOriginal = true;
         string username = "";
+        cout << string(50, '\n');
         while(loopFlag == false){
             isOriginal = true;
             cout << "Please enter a new username: " << endl;
+            cout << string(20, '\n');
             cin >> username;
             //Make sure username hasn't been used before
             for(int i = 0; i <= columnCounter; i++){
                 if(username == loginVector[i][0]){
+                    cout << string(50, '\n');
                     cout << "That username has already been taken!" << endl;
                     isOriginal = false;
                 }
@@ -71,12 +74,14 @@ void Users::createLogin(){
         }
         //Prompt user to enter new password
         string password = "";
+        cout << string(50, '\n');
         cout << "Please enter a password: " << endl;
         cin >> password;
         //Ask user if this is manager account
         bool managerFlag = false;
         char managerString = ' ';
         loopFlag = false;
+        cout << string(50, '\n');
         while(loopFlag == false){
             cout << "Is this a manager account? (enter 'y' or 'n'): " << endl;
             cin >> managerString;
@@ -89,6 +94,7 @@ void Users::createLogin(){
                 loopFlag = true;
             }
             else{
+                cout << string(50, '\n');
                 cout << "You did not enter 'y' or 'n'!" << endl;
             }
         }
@@ -119,21 +125,26 @@ void Users::createLogin(){
     }
     //!If file does not exist: create file, and add user's entry
     else{
+        cout << string(50, '\n');
         cout << "Login has not been created!" << endl;
         //Create login.txt file
         ofstream loginFile("login.txt");
         //Prompt user for username
         string username;
         cout << "Please enter a new username: " << endl;
+        cout << string(19, '\n');
         cin >> username;
         //Prompt user to enter new password
+        cout << string(50, '\n');
         string password = "";
         cout << "Please enter a password: " << endl;
+        cout << string(20, '\n');
         cin >> password;
         //Ask user if this is manager account
         bool managerFlag = false;
         char managerString = ' ';
         bool loopFlag = false;
+        cout << string(50, '\n');
         while(loopFlag == false){
             cout << "Is this a manager account? (enter 'y' or 'n'): " << endl;
             cin >> managerString;
@@ -146,6 +157,7 @@ void Users::createLogin(){
                 loopFlag = true;
             }
             else{
+                cout << string(50, '\n');
                 cout << "You did not enter 'y' or 'n'!" << endl;
             }
         }
@@ -199,52 +211,65 @@ bool Users::logIn(string& name, bool& isManager){
     string managerString;
     bool manager;
     int dumb;
-    //Prompt for user to enter username
-    //cout << "Please login." << endl << "Enter your username: " << endl;
-    //cin >> username;
     int userColumn;
     bool loopFlag = false;
+
     cout << string(50, '\n');
-    while(loopFlag == false){
-            //!FIX THIS LOOP LOGIC!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-            //If user enters 'q', return true to close program
-            if(username == "q"){
-                cout << string(50, '\n');
-                return true;
-            }
-            else{
-            cout << "    Welcome! Please, login    " << endl;
-            cout << "------------------------------" << endl;
-            cout << "Please enter your username: " << endl;
-            cout << "(Enter 'q' to quit program)" << endl;
-            cout << string(19, '\n');
-            cin >> username;
-                //Make sure username hasn't been used before
-                for(int i = 0; i <= loginVector.size(); i++){
-                    if(username == loginVector[i][0]){
-                        loopFlag = true;
-                        userColumn = i;
-                    }
+    do{
+        //Prompt for user to enter username
+        cout << "    Welcome! Please, login    " << endl;
+        cout << "------------------------------" << endl;
+        cout << "Please enter your username: " << endl;
+        cout << "(Enter 'q' to quit program)" << endl;
+        cout << string(19, '\n');
+        cin >> username;
+        //Make sure username hasn't been used before
+        if(username != "q"){
+            for(int i = 0; i <= loginVector.size() - 1; i++){
+                if(username == loginVector[i][0]){
+                    loopFlag = true;
+                    userColumn = i;
                 }
+            }
                 if(loopFlag == false){
                     cout << string(50, '\n');
                     cout << "Username does not exist!" << endl;
                 }
-            }
         }
+        else if(loopFlag == true){
+            break;
+        }
+        //If user enters 'q', return true to close program
+        else{
+            return true;
+        }
+    }
+    while(loopFlag == false);
+
     //Prompt for user to enter password
     loopFlag = false;
-    while(loopFlag == false){
+    cout << string(50, '\n');
+    do{
             cout << "Please enter your password: " << endl;
+            cout << "(Enter 'q' to quit program)" << endl;
+            cout << string(21, '\n');
             cin >> password;
-            if(password == loginVector[userColumn][1]){
-                loopFlag = true;
+            if(password != "q"){
+                if(password == loginVector[userColumn][1]){
+                    loopFlag = true;
+                }
+                else if(loopFlag == false){
+                    cout << string(50, '\n');
+                    cout << "Password is incorrect!" << endl;
+                }
             }
-            else if(loopFlag == false){
-                cout << string(50, '\n');
-                cout << "Password is incorrect!" << endl;
+            //If user enters 'q', return true to close program
+            else{
+                return true;
             }
-        }
+    }
+    while(loopFlag == false);
+
     //Set bool manager if user is a manager or not
     managerString = loginVector[userColumn][2];
     manager = managerString.c_str();

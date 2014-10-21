@@ -4,15 +4,18 @@
 #include <fstream>
 using namespace std;
 
-/*!
-Program runs from constructor
-Constructor will check to see if manager login file has been
-created before doing anything else in the program.
-*/
+//!Instantiate global objects for program!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+Users login;
+//!Inventory myInventory;
+//!Menu myMenu;
+
 Display::Display(){
     quitProgram = false;
 }
-
+/*!
+Program will check to see if manager login file has been
+created before doing anything else in the program.
+*/
 void Display::displayStart(){
     //Check to see if user has quit program from login menu
     if(quitProgram == true){
@@ -24,8 +27,7 @@ void Display::displayStart(){
         if(checkForManagerFile() == false){
             //Manager file does not exist!
             //Take to manager user creation page
-            Users newLogin;
-            newLogin.createLogin();
+            login.createLogin();
             //Take to login page
             displayLogin();
             //Check to see if user has quit program from login menu
@@ -58,8 +60,8 @@ void Display::displayStart(){
 
 void Display::displayMain(){
     //Display main menu after successful login
-    int choice;
-    int dummyChoice;
+    string choice;
+    string dummyChoice;
     cout << string(50, '\n');
     do{
         cout << "User: " << name << endl;
@@ -73,7 +75,7 @@ void Display::displayMain(){
         cout << "Please select an option: ";
         cin >> choice;
 
-        if(choice == 1){
+        if(choice == "1"){
             //Can only access setups if logged in to manager account
             if(isManager == true){
                 displaySetups();
@@ -86,29 +88,28 @@ void Display::displayMain(){
                 cin >> dummyChoice;
             }
         }
-        else if(choice == 2){
-            cout << string(50, '\n');
-            cout << "Menu functionality coming soon!" << endl;
-            cout << "Press any key to return to last screen.";
-            cout << string(21, '\n');
+        else if(choice == "2"){
+            //displayMenu();
+            //!myMenu.takeOrder();
             //!Call Menu.display function here!
         }
-        else if(choice == 3){
+        else if(choice == "3"){
             displayLogout();
         }
         else{
             cout << string(50, '\n');
             cout << "Invalid choice!" << endl;
         }
+        cout << string(50, '\n');
     }
-    while(choice != 3);
+    while(choice != "3");
     displayStart();
 }
 
 void Display::displaySetups(){
     //Setups menu
-    int choice;
-    int dummyChoice;
+    string choice;
+    string dummyChoice;
     cout << string(50, '\n');
     do{
         cout << "User: " << name << endl;
@@ -124,42 +125,33 @@ void Display::displaySetups(){
         cout << string(12, '\n');
         cin >> choice;
 
-        if(choice == 1){
-            cout << string(50, '\n');
-            cout << "Users functionality coming soon!" << endl;
-            cout << "Press any key to return to last screen.";
-            cin >> dummyChoice;
+        if(choice == "1"){
+            displayUsersSetup();
             //!Call Users setup function here
         }
-        else if(choice == 2){
-            cout << string(50, '\n');
-            cout << "Inventory functionality coming soon!" << endl;
-            cout << "Press any key to return to last screen.";
-            cin >> dummyChoice;
+        else if(choice == "2"){
+            displayInventorySetup();
             //!Call Inventory setup function here!
         }
-        else if(choice == 3){
-            cout << string(50, '\n');
-            cout << "Menu functionality coming soon!" << endl;
-            cout << "Press any key to return to last screen.";
-            cin >> dummyChoice;
+        else if(choice == "3"){
+            displayMenuSetup();
             //!Call menu setup function here!
         }
-        else if(choice == 4){
+        else if(choice == "4"){
             cout << string(50, '\n');
             cout << "Register functionality coming soon!" << endl;
             cout << "Press any key to return to last screen.";
             cin >> dummyChoice;
             //!Call register setup function here!
         }
-        else if(choice == 5){
+        else if(choice == "5"){
             cout << string(50, '\n');
             cout << "View Daily Report functionality coming soon!" << endl;
             cout << "Press any key to return to last screen.";
             cin >> dummyChoice;
             //!Call view daily report function here!
         }
-        else if(choice == 6){
+        else if(choice == "6"){
             //Exit setup menu, go back to main menu
             cout << string(50, '\n');
         }
@@ -168,11 +160,139 @@ void Display::displaySetups(){
             cout << "Invalid choice!" << endl;
         }
     }
-    while(choice != 6);
+    while(choice != "6");
+}
+
+void Display::displayUsersSetup(){
+    //Users menu
+    //Create Users object
+    //Users login;
+    string choice;
+    string dummyChoice;
+    cout << string(50, '\n');
+    do{
+        cout << "User: " << name << endl;
+        cout << "-------------------------" << endl;
+        cout << "      Users Setup        " << endl;
+        cout << "-------------------------" << endl << endl;
+        cout << "1) Add user" << endl;
+        cout << "2) Edit user" << endl;
+        cout << "3) Delete user" << endl;
+        cout << "4) Go back to previous menu" << endl;
+        cout << string(14, '\n');
+        cin >> choice;
+
+        if(choice == "1"){
+            cout << string(50, '\n');
+            login.createLogin();
+        }
+        else if(choice == "2"){
+            cout << string(50, '\n');
+            cout << "Edit user functionality coming soon!" << endl;
+            cout << "Press any key to return to last screen.";
+            cin >> dummyChoice;
+            //!insert edit user function here
+        }
+        else if(choice == "3"){
+            cout << string(50, '\n');
+            cout << "Delete user functionality coming soon!" << endl;
+            cout << "Press any key to return to last screen.";
+            cin >> dummyChoice;
+            //!insert delete user function here
+        }
+        else if(choice == "4"){
+            //Exit user menu, go back to setups menu
+            cout << string(50, '\n');
+        }
+        else{
+            cout << string(50, '\n');
+            cout << "Invalid choice!" << endl;
+        }
+    }
+    while(choice != "4");
+}
+
+void Display::displayInventorySetup(){
+    //Inventory menu
+    //!Inventory myInventory;
+    string choice;
+    string dummyChoice;
+    cout << string(50, '\n');
+    do{
+        cout << "User: " << name << endl;
+        cout << "-------------------------" << endl;
+        cout << "     Inventory Setup      " << endl;
+        cout << "-------------------------" << endl << endl;
+        cout << "1) Add a new item in new category" << endl;
+        cout << "2) Add a new item in an existing category" << endl;
+        cout << "3) View entire inventory" << endl;
+        cout << "4) Go back to previous menu" << endl;
+        cout << string(14, '\n');
+        cin >> choice;
+
+        if(choice == "1"){
+            //!myInventory.addItem();
+        }
+        else if(choice == "2"){
+            //!myInventory.addToExistingCat();
+        }
+        else if(choice == "3"){
+            //!myInventory.printInvoVector();
+        }
+        else if(choice == "4"){
+            //Exit inventory menu, go back to main menu
+            cout << string(50, '\n');
+        }
+        else{
+            cout << string(50, '\n');
+            cout << "Invalid choice!" << endl;
+        }
+    }
+    while(choice != "4");
+}
+
+void Display::displayMenuSetup(){
+    //Menu menu
+    //!Menu myMenu;
+    string choice;
+    string dummyChoice;
+    cout << string(50, '\n');
+    do{
+        cout << "User: " << name << endl;
+        cout << "-------------------------" << endl;
+        cout << "       Menu Setup        " << endl;
+        cout << "-------------------------" << endl << endl;
+        cout << "1) Create single item" << endl;
+        cout << "2) Create compound/combo item" << endl;
+        cout << "3) Go back to previous menu" << endl;
+        cout << string(15, '\n');
+        cin >> choice;
+
+        if(choice == "1"){
+            //!myMenu.makeMenuItemSingle();
+        }
+        else if(choice == "2"){
+            //!myMenu.makeMenuItemCompound();
+        }
+        else if(choice == "3"){
+            //Exit inventory menu, go back to main menu
+            cout << string(50, '\n');
+        }
+        else{
+            cout << string(50, '\n');
+            cout << "Invalid choice!" << endl;
+        }
+    }
+    while(choice != "3");
+}
+
+void Display::displayMenu(){
+
 }
 
 void Display::displayLogin(){
     //Prompt for user login
+    //Create Users object
     Users login;
     quitProgram = login.logIn(name,isManager);
 }

@@ -7,17 +7,21 @@ using namespace std;
 class Display{
 public:
     Display();
+
     void displayStart();
     bool checkForManagerFile();
     void displayLogin();
     void displayLogout();
     void displayMain();
     void displaySetups();
-    void displayInventoryMenu();
-    void displayUsersMenu();
+    void displayInventorySetup();
+    void displayUsersSetup();
+    void displayMenuSetup();
+    void displayMenu();
 
     ~Display();
 private:
+
     string name;
     bool isManager;
     bool quitProgram;
