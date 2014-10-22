@@ -1,6 +1,7 @@
 #ifndef USERS_H
 #define USERS_H
 #include "Display.h"
+#include "Inventory.h"
 #include <iostream>
 using namespace std;
 

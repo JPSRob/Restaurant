@@ -1,5 +1,6 @@
 #include "Users.h"
 #include "Display.h"
+#include "Inventory.h"
 #include <iostream>
 #include <fstream>
 #include <vector>
