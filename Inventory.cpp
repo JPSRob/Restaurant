@@ -140,7 +140,7 @@ void Inventory::updateInvoDotTxt()
 
     if(invoVector[0][0] == "")
     {
-        cout << "Inventory is empty." << endl;
+        cout << "Inventory is empty, however, do not panic. You have not created any items yet." << endl;
     }
     else if(invoVector[0][0] != "")
     {
