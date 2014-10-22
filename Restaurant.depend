@@ -86,3 +86,47 @@
 	<fstream>
 	<vector>
 
+1413940279 source:c:\users\justin roberts\desktop\group project integration\display.cpp
+	"Display.h"
+	"Users.h"
+	"Inventory.h"
+	<iostream>
+	<fstream>
+
+1413936829 c:\users\justin roberts\desktop\group project integration\display.h
+	"Users.h"
+	"Inventory.h"
+	<iostream>
+
+1413936829 c:\users\justin roberts\desktop\group project integration\users.h
+	"Display.h"
+	"Inventory.h"
+	<iostream>
+
+1413940092 c:\users\justin roberts\desktop\group project integration\inventory.h
+	<vector>
+	<fstream>
+
+1413940279 source:c:\users\justin roberts\desktop\group project integration\inventory.cpp
+	"Inventory.h"
+	<iostream>
+	<fstream>
+	<sstream>
+	<string>
+	<cstdlib>
+	<vector>
+
+1413936829 source:c:\users\justin roberts\desktop\group project integration\main.cpp
+	"Display.h"
+	"Users.h"
+	"Inventory.h"
+	<iostream>
+
+1413936829 source:c:\users\justin roberts\desktop\group project integration\users.cpp
+	"Users.h"
+	"Display.h"
+	"Inventory.h"
+	<iostream>
+	<fstream>
+	<vector>
+

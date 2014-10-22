@@ -33,6 +33,10 @@
 		</Compiler>
 		<Unit filename="Display.cpp" />
 		<Unit filename="Display.h" />
+		<Unit filename="Inventory.cpp" />
+		<Unit filename="Inventory.h" />
+		<Unit filename="Menu.cpp" />
+		<Unit filename="Menu.h" />
 		<Unit filename="Users.cpp" />
 		<Unit filename="Users.h" />
 		<Unit filename="main.cpp" />

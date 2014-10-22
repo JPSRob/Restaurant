@@ -1,2 +1,1 @@
-Justin,password,1
-Kyle,asdf,0
+justin,password,1

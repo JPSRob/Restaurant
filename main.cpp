@@ -2,6 +2,8 @@
 //This is Justin's branch!
 #include "Display.h"
 #include "Users.h"
+#include "Inventory.h"
+#include "Menu.h"
 #include <iostream>
 using namespace std;
 
