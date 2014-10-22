@@ -1,0 +1,20 @@
+# depslib dependency file v1.0
+1413935778 source:c:\users\kyle\desktop\inventory\inventory.cpp
+	"Inventory.h"
+	<iostream>
+	<fstream>
+	<sstream>
+	<string>
+	<cstdlib>
+	<vector>
+
+1413932798 c:\users\kyle\desktop\inventory\inventory.h
+	<vector>
+	<fstream>
+
+1413936006 source:c:\users\kyle\desktop\inventory\main.cpp
+	"Inventory.h"
+	<iostream>
+	<vector>
+	<fstream>
+

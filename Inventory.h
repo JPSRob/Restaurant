@@ -12,14 +12,21 @@ public:
     void addItem();
     void addToExistingCat(); //Add to existing category
     void deleteAllCategories();
+    void updateInvo();
+    void printInvoVector();
+    void printAllCategories();
+
+    vector <vector <string> > returnItemsInCategory(string categoryFileName);
+
 private:
     int counter;
+    int numberOfItems;
 
     string inFromFile= "";
     string inFromFileTwo = "";
     string itemIDNumber = "";
 
-    ifstream invFile;
+    ofstream invFile;
     ifstream categoryFile;
     ifstream idNumber;
 
@@ -27,8 +34,5 @@ private:
     vector <string> invoItemInfo;
     vector <string> categoryVector;
 };
-
-
-
 
 #endif // INVENTORY_H
