@@ -1,4 +1,5 @@
 #include "Inventory.h"
+#include "Menu.h"
 #include <iostream>
 #include <fstream>
 #include <sstream>
@@ -140,7 +141,11 @@ void Inventory::updateInvoDotTxt()
 
     if(invoVector[0][0] == "")
     {
+<<<<<<< HEAD
         cout << "Inventory is empty, however, do not panic. You have not created any items yet." << endl;
+=======
+        //cout << "Inventory is empty." << endl;
+>>>>>>> d4d5aedb5e5c89e29006389fe165fc732fc99b17
     }
     else if(invoVector[0][0] != "")
     {
@@ -291,7 +296,7 @@ void Inventory::fillCategoryVector()
     }
     else
     {
-        cout << "Error file did not open." << endl;
+        //cout << "Error file did not open." << endl;
     }
 }
 
@@ -356,10 +361,21 @@ void Inventory::addItem()
     string categoryNameTxtFile = "";
 
     bool flag = 0;
-
-    cout << "Please type in the name of the category for your item:" << endl;
-    cout << "Must be at least four characters long." << endl;
-    cin >> categoryName;
+    cout << string(50, '\n');
+    do{
+        cout << "Please type in the name of the category for your item:" << endl;
+        cout << "Must be at least four characters long." << endl;
+        cout << string(21, '\n');
+        cin >> categoryName;
+        //Error check that user entered value greater than 4 characters
+        if(categoryName.size() >= 4){
+            //Do nothing to continue
+        }
+        else{
+            cout << "Your entry is less than four characters!" << endl;
+        }
+    }
+    while(categoryName.size() <= 4);
 
     categoryFile.open("categories.txt");
 
@@ -388,11 +404,14 @@ void Inventory::addItem()
     }
 
     outputFile.close();
-
+    cout << string(50, '\n');
     cout << "Type in the name of your item: " << endl;
+    cout << string(22, '\n');
     cin >> itemName;
 
+    cout << string(50, '\n');
     cout << "Type in the quantity of the item." << endl;
+    cout << string(22, '\n');
     cin >> quantity;
 
     getIDNumber();
@@ -439,8 +458,10 @@ void Inventory::addToExistingCat()
 
     if(invoVector[0][0] == "")
     {
+        cout << string(50, '\n');
         cout << "There have not been any items created in the system." << endl;
         cout << "Please create a category and an item before adding to an existing category." << endl;
+        cout << string(21, '\n');
     }
     else if(invoVector[0][0] != "")
     {
@@ -457,7 +478,9 @@ void Inventory::addToExistingCat()
             cout << categoryCounter << ". " << tempCategory << endl;
         }
 
+        cout << string(50, '\n');
         cout << "Make a selection by inputting a number that corresponds with a category:" << endl;
+        cout << string(22, '\n');
         cin >> userInput;
 
         if(userInput >= 1)
@@ -476,11 +499,24 @@ void Inventory::addToExistingCat()
 
             categoryName = tempCategoryName;
 
+            cout << string(50, '\n');
             cout << "Type in the name of your item. " << endl;
+            cout << string(22, '\n');
             cin >> itemName;
 
+            cout << string(50, '\n');
             cout << "Type in the quantity of the item. " << endl;
+            cout << string(22, '\n');
             cin >> quantity;
+            while(cin.fail()){
+                cout << string(50, '\n');
+                cout << "You did not enter a number!" << endl;
+                cin.clear();
+                cin.ignore(256, '\n');
+                cout << "Type in the quantity of the item." << endl;
+                cout << string(21, '\n');
+                cin >> quantity;
+            }
 
             getIDNumber();
 

@@ -1,6 +1,7 @@
 #include "Display.h"
 #include "Users.h"
 #include "Inventory.h"
+#include "Menu.h"
 #include <iostream>
 #include <fstream>
 using namespace std;
@@ -8,7 +9,7 @@ using namespace std;
 //!Instantiate global objects for program!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 Users login;
 Inventory myInventory;
-//!Menu myMenu;
+Menu myMenu;
 
 Display::Display(){
     quitProgram = false;
@@ -91,8 +92,7 @@ void Display::displayMain(){
         }
         else if(choice == "2"){
             //displayMenu();
-            //!myMenu.takeOrder();
-            //!Call Menu.display function here!
+            myMenu.takeOrder();
         }
         else if(choice == "3"){
             displayLogout();
@@ -128,15 +128,12 @@ void Display::displaySetups(){
 
         if(choice == "1"){
             displayUsersSetup();
-            //!Call Users setup function here
         }
         else if(choice == "2"){
             displayInventorySetup();
-            //!Call Inventory setup function here!
         }
         else if(choice == "3"){
             displayMenuSetup();
-            //!Call menu setup function here!
         }
         else if(choice == "4"){
             cout << string(50, '\n');
@@ -257,7 +254,6 @@ void Display::displayInventorySetup(){
 
 void Display::displayMenuSetup(){
     //Menu menu
-    //!Menu myMenu;
     string choice;
     string dummyChoice;
     cout << string(50, '\n');
@@ -273,10 +269,10 @@ void Display::displayMenuSetup(){
         cin >> choice;
 
         if(choice == "1"){
-            //!myMenu.makeMenuItemSingle();
+            myMenu.makeMenuItemSingle();
         }
         else if(choice == "2"){
-            //!myMenu.makeMenuItemCompound();
+            myMenu.makeMenuItemCompound();
         }
         else if(choice == "3"){
             //Exit inventory menu, go back to main menu

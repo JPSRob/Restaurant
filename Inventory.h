@@ -2,6 +2,7 @@
 #define INVENTORY_H
 #include <vector>
 #include <fstream>
+#include "Menu.h"
 
 using namespace std;
 
