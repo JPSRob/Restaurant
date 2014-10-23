@@ -8,10 +8,9 @@
 #include "Inventory.h"
 
 using namespace std;
-//myInventory
-Menu::Menu(){
-    Inventory menuInventory;
-}
+
+//Instantiate Inventory object for use in Menu functions
+Inventory menuInventory;
 
 vector<vector<string> > Menu::readFileToVector(string filename)
 {

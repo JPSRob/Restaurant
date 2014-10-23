@@ -9,7 +9,6 @@ using namespace std;
 class Menu
 {
 public:
-Menu();
 vector<vector<string> > readFileToVector(string filename);
 void writeVectorToFile(vector<vector<string> > v, string filename);
 void printVector(vector<vector<string> > inputVector, int colsCutOff);
@@ -24,7 +23,7 @@ bool payOrder(double total);
 void deductInvo(vector<string>  orderList);
 
 private:
-    //Inventory myInventory;
+
 };
 
 #endif // MENU_H
