@@ -1,0 +1,5 @@
+
+0,rye,65,Bread,
+1,rye2,5,Bread,
+2,BeefPatty,10,Meat,
+3,Fries,10,Side,

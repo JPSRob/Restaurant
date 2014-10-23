@@ -141,11 +141,10 @@ void Inventory::updateInvoDotTxt()
 
     if(invoVector[0][0] == "")
     {
-<<<<<<< HEAD
-        cout << "Inventory is empty, however, do not panic. You have not created any items yet." << endl;
-=======
+        //cout << "Inventory is empty, however, do not panic. You have not created any items yet." << endl;
+
         //cout << "Inventory is empty." << endl;
->>>>>>> d4d5aedb5e5c89e29006389fe165fc732fc99b17
+
     }
     else if(invoVector[0][0] != "")
     {
@@ -254,7 +253,7 @@ void Inventory::getIDNumber()
     }
     else
     {
-        cout << "File did not open. Call Code Talkers Inc." << endl;
+        //File not open
     }
 
             // http://www.cplusplus.com/articles/D9j2Nwbp/
@@ -368,14 +367,14 @@ void Inventory::addItem()
         cout << string(21, '\n');
         cin >> categoryName;
         //Error check that user entered value greater than 4 characters
-        if(categoryName.size() >= 4){
+        if(categoryName.size() < 4){
             //Do nothing to continue
         }
         else{
             cout << "Your entry is less than four characters!" << endl;
         }
     }
-    while(categoryName.size() <= 4);
+    while(categoryName.size() < 4);
 
     categoryFile.open("categories.txt");
 
@@ -442,18 +441,38 @@ void Inventory::addItem()
     categoryOutputFile.close();
 }
 
+void Inventory::displayCategories()
+{
+    string tempCategory= "";
+
+    int categoryCounter = 0;
+
+    fillCategoryVector();
+
+    for(int o=0;o<categoryVector.size();o++) // prints all of the category names without the file extension
+    {
+        categoryCounter++;
+        tempCategory = categoryVector[o];
+
+        tempCategory.erase(tempCategory.end()-4);
+        tempCategory.erase(tempCategory.end()-3);
+        tempCategory.erase(tempCategory.end()-2);
+        tempCategory.erase(tempCategory.end()-1);
+
+        cout << categoryCounter << ". " << tempCategory << endl;
+    }
+
+}
 
 void Inventory::addToExistingCat()
 {
-    string tempCategory = "";
+    string tempCategoryName = "";
     string nameOfCategoryFile = "";
     string selectedCategory = "";
     string itemName = "";
     string quantity = "";
     string categoryName = "";
-    string tempCategoryName = "";
 
-    int categoryCounter = 0;
     int userInput = 0;
 
     if(invoVector[0][0] == "")
@@ -465,22 +484,11 @@ void Inventory::addToExistingCat()
     }
     else if(invoVector[0][0] != "")
     {
-        for(int o=0;o<categoryVector.size();o++) // prints all of the category names without the file extension
-        {
-            categoryCounter++;
-            tempCategory = categoryVector[o];
 
-            tempCategory.erase(tempCategory.end()-4);
-            tempCategory.erase(tempCategory.end()-3);
-            tempCategory.erase(tempCategory.end()-2);
-            tempCategory.erase(tempCategory.end()-1);
+        displayCategories();
 
-            cout << categoryCounter << ". " << tempCategory << endl;
-        }
 
-        cout << string(50, '\n');
         cout << "Make a selection by inputting a number that corresponds with a category:" << endl;
-        cout << string(22, '\n');
         cin >> userInput;
 
         if(userInput >= 1)

@@ -112,7 +112,10 @@ void Menu::makeMenuItemSingle()
 {
     cout << "Name your new menu item (Single):"<< endl;
     string itemName;
-    getline(cin , itemName);
+    cin >> itemName;
+    //getline(cin , itemName);
+        string junk;
+    getline(cin , junk);
     string itemFilename = itemName + ".txt";
     vector<vector<string> > itemVector;
     itemVector.resize(1);
@@ -120,7 +123,7 @@ void Menu::makeMenuItemSingle()
     cout << "Enter a price for " + itemName + ":" << endl;
     double price=0;
     cin >> price;
-    string junk;
+    //string junk;
     getline(cin , junk);
     itemVector[0].push_back(double_to_string(price));
     /*
@@ -181,6 +184,7 @@ void Menu::makeMenuItemSingle()
     {
         cout << "Name the new menu category:" << endl;
         string menuCategoryName;
+        //cin >> menuCategoryName;
         getline(cin , menuCategoryName);
         // add the new category to the MenuCategoryList
         int listSize = MenuCategoryList.size();
@@ -219,14 +223,16 @@ void Menu::makeMenuItemCompound()
 {
     cout << "Name your new menu item (Compound):"<< endl;
     string itemName;
-    getline(cin , itemName);
+    cin >> itemName;
+    string junk;
+    getline(cin , junk);
     string itemFilename = itemName + ".txt";
     vector<vector<string> > itemVector;
     itemVector.resize(1);
     cout << "Enter a price for " + itemName + ":" << endl;
     double price=0;
     cin >> price;
-    string junk;
+    //string junk;
     getline(cin , junk);
     itemVector[0].push_back(double_to_string(price));
 
@@ -384,7 +390,7 @@ while (!done)
 }
     if (this->payOrder(total))
     {
-       this->deductInvo(itemsList);
+       //this->deductInvo(itemsList);
     }
     cout << "Transaction complete." << endl;
 }
@@ -413,7 +419,7 @@ bool Menu::payOrder(double total)
 void Menu::deductInvo(vector<string>  itemsList)
 {
 
-    vector<vector<string> > InvoVector = readFileToVector("Inventory.txt");
+    vector<vector<string> > InvoVector = readFileToVector("inventory.txt");
     printVector(InvoVector,0);
     for ( size_t i=0; i<itemsList.size(); i++)
     {
@@ -434,7 +440,7 @@ void Menu::deductInvo(vector<string>  itemsList)
         InvoVector[desiredInvoLine  ][2] = quantityString;
 
     }
-    writeVectorToFile(InvoVector, "Inventory.txt");
+    writeVectorToFile(InvoVector, "inventory.txt");
 
 }
 

@@ -13,17 +13,18 @@ public:
     void addItem();
     void addToExistingCat(); //Add to existing category
     void deleteAllCategories();
-    void updateInvo();
+    void displayCategories();
+    void fillCategoryVector();
+    void getIDNumber();
+    void initializeVector();
     void printInvoVector();
     void printAllCategories();
-    void initializeVector();
-    void fillCategoryVector();
+    void readInInventoryFile();
     void saveID();
     void updateIDFile();
-    void getIDNumber();
+    void updateInvo();
     void updateInvoTwoDVector();
     void updateInvoDotTxt();
-    void readInInventoryFile();
     void printOneDVector(vector <string> input);
     void printTwoDVector(vector <vector <string> > inputTwo);
 
