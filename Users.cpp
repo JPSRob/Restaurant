@@ -265,6 +265,7 @@ bool Users::logIn(string& name, bool& isManager){
             }
             //If user enters 'q', return true to close program
             else{
+                cout << "returning true to quit" << endl;
                 return true;
             }
     }

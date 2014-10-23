@@ -34,29 +34,31 @@
 	<fstream>
 	<vector>
 
-1413863360 source:c:\users\big blue\documents\github\restaurant\main.cpp
+1414030584 source:c:\users\big blue\documents\github\restaurant\main.cpp
 	"Display.h"
+	"Users.h"
+	"Inventory.h"
+	<iostream>
+
+1414030584 c:\users\big blue\documents\github\restaurant\display.h
 	"Users.h"
 	<iostream>
 
-1413863172 c:\users\big blue\documents\github\restaurant\display.h
-	"Users.h"
-	<iostream>
-
-1413861835 c:\users\big blue\documents\github\restaurant\users.h
+1414030584 c:\users\big blue\documents\github\restaurant\users.h
 	"Display.h"
 	<iostream>
 
-1413864481 source:c:\users\big blue\documents\github\restaurant\users.cpp
+1414031081 source:c:\users\big blue\documents\github\restaurant\users.cpp
 	"Users.h"
 	"Display.h"
 	<iostream>
 	<fstream>
 	<vector>
 
-1413863686 source:c:\users\big blue\documents\github\restaurant\display.cpp
+1414030951 source:c:\users\big blue\documents\github\restaurant\display.cpp
 	"Display.h"
 	"Users.h"
+	"Inventory.h"
 	<iostream>
 	<fstream>
 
@@ -84,5 +86,18 @@
 	"Display.h"
 	<iostream>
 	<fstream>
+	<vector>
+
+1414030584 c:\users\big blue\documents\github\restaurant\inventory.h
+	<vector>
+	<fstream>
+
+1414030584 source:c:\users\big blue\documents\github\restaurant\inventory.cpp
+	"Inventory.h"
+	<iostream>
+	<fstream>
+	<sstream>
+	<string>
+	<cstdlib>
 	<vector>
 
