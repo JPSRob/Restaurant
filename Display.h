@@ -1,6 +1,8 @@
 #ifndef DISPLAY_H
 #define DISPLAY_H
 #include "Users.h"
+#include "Menu.h"
+#include "Inventory.h"
 #include <iostream>
 using namespace std;
 

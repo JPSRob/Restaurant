@@ -1,4 +1,5 @@
 #include "Inventory.h"
+#include "Menu.h"
 #include <iostream>
 #include <fstream>
 #include <sstream>
