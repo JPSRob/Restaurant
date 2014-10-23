@@ -353,7 +353,7 @@ void Inventory::addItem()
     string inFromFile = "";
     string dotTxtChecker = "";
     string itemName = "";
-    int quantity = 0;
+    string quantity = "";
     string categoryNameTxtFile = "";
 
     bool flag = 0;
@@ -371,7 +371,7 @@ void Inventory::addItem()
             cout << "Your entry is less than four characters!" << endl;
         }
     }
-    while(categoryName.size() >= 4);
+    while(categoryName.size() <= 4);
 
     categoryFile.open("categories.txt");
 
@@ -409,15 +409,6 @@ void Inventory::addItem()
     cout << "Type in the quantity of the item." << endl;
     cout << string(22, '\n');
     cin >> quantity;
-    while(cin.fail()){
-        cout << string(50, '\n');
-        cout << "You did not enter a number!" << endl;
-        cin.clear();
-        cin.ignore(256, '\n');
-        cout << "Type in the quantity of the item." << endl;
-        cout << string(21, '\n');
-        cin >> quantity;
-    }
 
     getIDNumber();
 

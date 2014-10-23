@@ -107,7 +107,7 @@
 	<cstdlib>
 	<vector>
 
-1414033065 source:c:\users\big blue\documents\github\restaurant\menu.cpp
+1414036831 source:c:\users\big blue\documents\github\restaurant\menu.cpp
 	<iostream>
 	<iterator>
 	<fstream>
@@ -115,6 +115,7 @@
 	<string>
 	<vector>
 	"Menu.h"
+	"Inventory.h"
 
 1414036831 c:\users\big blue\documents\github\restaurant\menu.h
 	<vector>
